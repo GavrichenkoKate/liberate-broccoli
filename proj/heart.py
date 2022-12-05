@@ -5,6 +5,7 @@ import seaborn as sns
 import pandas as pandas
 from Build_Graph.py import *
 from Excel_Read.py import *
+from Transform_to_Latex import *
 
 
 
@@ -32,5 +33,24 @@ if desired == 'a':
     
 elif desired == 'b':
     
-elif desired == 'c':             
+elif desired == 'c':  
+      
+    read_csv(file_name)
+    make_latex_table_with_borders(data)
+    make_latex_table_without_borders(data)
+    make_latex_table_with_separator_between_columns(data)
+    
+    print('Введите фиксированную длину столбца')
+    len_array = int(input())
+    
+    make_latex_table_with_length_columns(data, len_array)
+    '''
+    :param data:
+    :param len_array: ширина столбца в сантиметрах
+    :return:
+    '''
+    len_array = [2, 3, 4]
+    A = read_csv(r"C:\Users\user\Downloads\23.csv")
+    for i in make_latex_table_with_length_columns(A, len_array):
+        print(i)         
 
